@@ -35,3 +35,39 @@ Implement an endpoint in your REST API which will return the list of charging se
 Describe in words what unit tests you would implement to test that the date range filter is working correctly. 
 ## Code Versioning 
 Create a github repository and upload your web application.
+
+# Below is the solution for this exercise
+## 1. ER Diagram
+![Entity](EntityDiagram.png)
+
+## 2. Dummy Data
+When the application starts running, the following dummy data will be persisted to the database in preparation for testing the REST API.
+### customer
+| id  | name                  |
+|-----|-----------------------|
+| 1   | University of Waikato |
+| 2   | Wintec                |
+### charge_point
+| id  | name      | serial_number | customer_id |
+|-----|-----------|---------------|-------------|
+| 1   | Blink_uni | uni1234567    | 1           |
+| 2   | ABB_win   | win7654321    | 2           |
+### connector
+| id  | connector_number | charge_point_id |
+|-----|------------------|-----------------|
+| 1   | blink0001uni     | 1               | 
+| 2   | blink0002uni     | 1               | 
+| 3   | abb0001win       | 2               |
+| 4   | abb0002win       | 2               |
+### rfid
+| id  | serial_number | customer_id | vehicle_id |
+|-----|---------------|-------------|------------|
+| 1   | uni:rfid:0001 | 1           | 1          |
+| 2   | win:rfid:0001 | 2           | 2          |
+### vehicle
+| id  | name    | plate_number |
+|-----|---------|--------------|
+| 1   | Model 3 | MYZ226       | 
+| 2   | Ioniq 5 | NPM171       | 
+
+

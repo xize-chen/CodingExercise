@@ -36,6 +36,7 @@ Describe in words what unit tests you would implement to test that the date rang
 ## Code Versioning 
 Create a github repository and upload your web application.
 
+
 # Below is the solution for this exercise
 ## 1. ER Diagram
 ![Entity](EntityDiagram.png)
@@ -70,4 +71,21 @@ When the application starts running, the following dummy data will be persisted 
 | 1   | Model 3 | MYZ226       | 
 | 2   | Ioniq 5 | NPM171       | 
 
+## REST API
+1. POST  "/session/start"
+    - Check whether given rfid and charge point belong to the same customer, and start a charging session if they match. Return session id.
+    - Query parameters: rfid_id, charge_point_id, time, meter_value
 
+2. PUT  "/session/terminate/{id}"
+    - Find the corresponding charging session through session id update end charging time and meter value.
+    - Path variable: id
+    - Query parameters: time, meter_value
+
+3. GET "/session"
+    - Get sessions using the session's start time and the given data time range.
+    - Query parameters: start_time, end_time
+
+4. GET "/version"
+    - Get application and database schema version info.
+    
+ 
